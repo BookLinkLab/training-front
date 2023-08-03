@@ -1,0 +1,17 @@
+.add-comment {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    row-gap: 15px;
+}
+
+.text-field {
+    width: 450px;
+}
+
+.text-field-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
