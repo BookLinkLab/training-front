@@ -2,7 +2,7 @@ import { Card, CardContent, Typography, CardActions, Button } from "@mui/materia
 import { useNavigate } from "react-router-dom"
 
 const CommentBox = ({ comment, goBack }) => {
-     const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const navigateTo = () => {
         /**
