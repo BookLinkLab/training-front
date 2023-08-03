@@ -26,7 +26,7 @@ const CommentBox = ({ comment, goBack }) => {
                 <Typography variant="body2">{comment.body}</Typography>
             </CardContent>
             <CardActions>
-                {comment.id < 5 && <Button size="small" onClick={navigateTo}>
+                {comment.id <= 5 && <Button size="small" onClick={navigateTo}>
                     {goBack ? "Go Back" : "Learn More"}
                 </Button>}
             </CardActions>
