@@ -9,7 +9,7 @@ const Comment = () => {
     return (
         <div className={"comment-container"}>
             <h3>Specific Comment</h3>
-            <CommentBox comment={comment} goBack={true} />
+            <CommentBox comment={comment} />
         </div>
     )
 }

@@ -5,6 +5,14 @@ const CommentBox = ({ comment, goBack }) => {
     const navigate = useNavigate()
 
     const navigateToComment = () => {
+        /**
+         * Si goBack es true se debe navegar a la pagina anterior.
+         * Si goBack es false se debe navegar a la pagina de comment y pasarle el comentario mediante el state
+         *
+         * Ayuda: Para navegar a la pagina de comment se debe utilizar el metodo navigate de useNavigate
+         * (navigate("/comment", {state: comment}))
+         */
+
         if (goBack) navigate("/")
         else navigate("/comment", { state: comment })
     }
