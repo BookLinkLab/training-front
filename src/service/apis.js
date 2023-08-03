@@ -6,11 +6,20 @@ const trainingAxios = axios.create({
 
 export const getComments = async () => {
     const response = await trainingAxios.get("")
-    // Utilizamos el slice para limitar la cantidad de comentarios a 5 ya que la api trae 500
     return response.data.slice(0, 5)
 }
 
 export const getComment = async (id) => {
-    const response = await trainingAxios.get(`/${id}`)
-    return response.data
+    /**
+     * TODO Obtener el comentario por id
+     *
+     * const response = ....
+     * return response.data
+     */
+    const mock = {
+        id: 1,
+        name: "id labore ex et quam laborum",
+        body: "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et"
+    }
+    return mock;
 }
