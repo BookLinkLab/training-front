@@ -1,8 +1,9 @@
 import "./App.css"
-import React from "react"
-// import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
+import React, {useEffect, useState} from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./screens/home/home"
-// import Comment from "./screens/comment/comment"
+import {getComments} from "./service/apis";
+import Comment from "./screens/comment/comment"
 
 /**
  * Agregar rutas para poder navegar entre las pantallas Home y Comment
@@ -13,8 +14,23 @@ import Home from "./screens/home/home"
  */
 
 function App() {
+
+    const [comments, setComments] = useState([])
+
+    useEffect(() => {
+        getComments().then((data) => {
+            setComments(data)
+        })
+    }, [])
+
     return (
-        <Home />
+        <Router>
+            <Routes>
+                <Route exact path="/" element={<Home comments={comments}/>}/>
+                <Route exact path={`/comment/:id`} element={<Comment />}/>
+            </Routes>
+        </Router>
+        //<Home comments={comments} />
         // <Comment />
     )
 }

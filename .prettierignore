@@ -1,6 +1,0 @@
-# Ignore artifacts:
-build
-node_modules
-local_modules
-public
-.storybook
