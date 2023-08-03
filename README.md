@@ -1,6 +1,19 @@
-# Getting Started with Create React App
+# Training Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You will need to make the following challenge
+[Frontend Challenge](https://docs.google.com/document/d/1hiIW4iPlE7ySQxbUEXYxEiNs31_nGQh7Bq8MwI2Pbkk/edit?usp=sharing).
+
+## Getting started
+
+1. Clonar el repositorio:
+    ```bash
+    git clone https://github.com/BookLinkLab/training-front.git
+   ```
+2. Install node
+- Use brew (MacOS), apt (Linux), scoop (Windows) or whatever package manager you want 
+- Or follow the instructions: https://nodejs.org/en/download/
+
+4. Download dependencies: `npm install`
 
 ## Available Scripts
 
