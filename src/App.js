@@ -25,9 +25,27 @@ function App() {
      * Ayuda: Utilizar BrowserRouter, Routes y Route de react-router-dom
      */
 
+    useEffect( () => {
+        //It is necessary to use the then, because since I am getting a promise, I need the data after the promise is resolved. 
+        getComments().then((comments_aux)=>{
+            setComments(comments_aux);
+            
+        });
+
+        
+    },[])
+    
+    
+    
+
+
     return (
-        <Home comments={comments} />
-        // <Comment />
+        <Router>
+            <Routes>
+                <Route exact path="/" element={<Home comments={comments}/>}></Route>
+                <Route exact path="/comment/:id" element={<Comment/>}></Route>
+            </Routes>
+        </Router>
     );
 }
 
