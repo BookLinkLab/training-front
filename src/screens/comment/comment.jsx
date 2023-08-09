@@ -9,6 +9,10 @@ const Comment = () => {
     const commentId = location.pathname.split("/")[2]
     const [comment, setComment] = useState({})
 
+    useEffect(()=>{
+        getComment(commentId).then((data)=>setComment(data))
+    },[commentId])
+
     /**
      * TODO Utilizar useEffect para obtener el comentario con el id commentId
      * Se requiere utilizar el servicio getComment(id) para obtener el comentario. (ver service/apis.js)
