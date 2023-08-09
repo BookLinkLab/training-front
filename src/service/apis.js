@@ -16,6 +16,10 @@ export const getComment = async (id) => {
      * const response = ....
      * return response.data
      */
+
+    const response = await trainingAxios.get(id)
+    return response.data
+
     const mock = {
         id: 1,
         name: "id labore ex et quam laborum",

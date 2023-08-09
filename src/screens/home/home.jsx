@@ -1,4 +1,4 @@
-import React, { useState} from "react"
+import React, {useEffect, useState} from "react"
 import { TextField, Button } from "@mui/material"
 import "./styles.css"
 import CommentBox from "../../components/CommentBox";
@@ -14,6 +14,19 @@ const Home = ({comments}) => {
      * y la lista de comentarios.
      */
 
+    const [title, setTitle] = useState("")
+    const [text, setText] = useState("")
+    const [commentList, setCommentList] = useState([])
+
+    useEffect(() => {
+        setCommentList(comments)
+    }, [comments])
+
+    const resetAttributes = () => {
+        setTitle("")
+        setText("")
+    }
+
     const handleAddComment = async() => {
         /**
          * TODO Se debe agregar el comentario a la lista de comentarios
@@ -27,6 +40,16 @@ const Home = ({comments}) => {
          *  }
          */
 
+        const newComment = {
+            id: commentList.length + 1,
+            name: title,
+            body: text,
+        }
+
+        setCommentList([...commentList, newComment])
+
+        resetAttributes();
+
     }
 
     return (
@@ -39,16 +62,16 @@ const Home = ({comments}) => {
                         label="Title"
                         variant="outlined"
                         className={"text-field"}
-                        value={""} // TODO Agregar valor
-                        onChange={() => {}} // TODO settear valor
+                        value={title} // TODO Agregar valor
+                        onChange={(event) => setTitle(event.target.value)} // TODO settear valor
                     />
                     <TextField
                         id="outlined-basic"
                         label="Comment"
                         variant="outlined"
                         className={"text-field"}
-                        value={""} // TODO Agregar valor
-                        onChange={() => {}} // TODO settear valor
+                        value={text} // TODO Agregar valor
+                        onChange={(event) => setText(event.target.value)} // TODO settear valor
                     />
                 </div>
                 <Button variant="contained" onClick={handleAddComment} className={"add-button"}>
@@ -64,6 +87,11 @@ const Home = ({comments}) => {
                  *
                  * Ayuda: Para recorrer la lista de comentarios se puede utilizar el metodo map
                  */}
+
+                {commentList.map((comment) => (
+                    <CommentBox comment={comment} goBack={false}/>
+                ))}
+
             </div>
         </div>
     )
