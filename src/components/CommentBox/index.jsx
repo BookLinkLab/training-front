@@ -1,8 +1,10 @@
 import { Card, CardContent, Typography, CardActions, Button } from "@mui/material"
 import { useNavigate } from "react-router-dom"
+import {useEffect} from "react";
+import {getComment} from "../../service/apis";
 
 const CommentBox = ({ comment, goBack }) => {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const navigateTo = () => {
         /**
@@ -12,6 +14,13 @@ const CommentBox = ({ comment, goBack }) => {
          * Ayuda: Para navegar a la pagina de comment se debe utilizar el metodo navigate de useNavigate
          * (navigate(`/comment/${comment.id}`))
          */
+
+        if (goBack) {
+            navigate(`/`)
+        }
+        else {
+            navigate(`/comment/${comment.id}`)
+        }
     }
 
     return (

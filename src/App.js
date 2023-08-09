@@ -25,9 +25,19 @@ function App() {
      * Ayuda: Utilizar BrowserRouter, Routes y Route de react-router-dom
      */
 
+    useEffect(() => {
+        getComments().then((data) => {
+            setComments(data)
+        })
+    }, [])
+
     return (
-        <Home comments={comments} />
-        // <Comment />
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home comments={comments}/>}/>
+                <Route path="/comment/:id" element={<Comment />}/>
+            </Routes>
+        </Router>
     );
 }
 
