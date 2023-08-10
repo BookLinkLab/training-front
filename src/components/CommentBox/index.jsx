@@ -2,16 +2,15 @@ import { Card, CardContent, Typography, CardActions, Button } from "@mui/materia
 import { useNavigate } from "react-router-dom"
 
 const CommentBox = ({ comment, goBack }) => {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const navigateTo = () => {
-        /**
-         * Si goBack es true se debe navegar a la pagina anterior.
-         * Si goBack es false se debe navegar a la pagina de comment y pasarle el commentId mediante params
-         *
-         * Ayuda: Para navegar a la pagina de comment se debe utilizar el metodo navigate de useNavigate
-         * (navigate(`/comment/${comment.id}`))
-         */
+        if (goBack) {
+            navigate('/')
+        }
+        else {
+            navigate(`/comment/${comment.id}`)
+        }
     }
 
     return (

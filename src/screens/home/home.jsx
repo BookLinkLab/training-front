@@ -1,4 +1,4 @@
-import React, { useState} from "react"
+import React, {useEffect, useState} from "react"
 import { TextField, Button } from "@mui/material"
 import "./styles.css"
 import CommentBox from "../../components/CommentBox";
@@ -9,24 +9,36 @@ import CommentBox from "../../components/CommentBox";
  */
 
 const Home = ({comments}) => {
-    /**
-     * TODO Utilizar estados para guardar el titulo y el texto del comentario
-     * y la lista de comentarios.
-     */
+
+    const [title, setTitle] = useState('')
+    const [body, setBody] = useState('')
+    const [commentsList, setCommentsList] = useState(comments)
+
+    useEffect(() => {
+        setCommentsList(comments)
+    }, [comments])
+
+    const resetInputs = () => {
+        setTitle('')
+        setBody('')
+    }
 
     const handleAddComment = async() => {
-        /**
-         * TODO Se debe agregar el comentario a la lista de comentarios
-         * y una vez agregado se debe limpiar los campos de texto (los inputs texts se vacian).
-         *
-         * Ayuda: Para agregar un nuevo comentario se debe crear un objeto parecido al siguiente
-         * {
-         *   id: comments.length + 1,
-         *   name: commentTitle,
-         *   body: commentText,
-         *  }
-         */
+        const newComment = {
+            id: commentsList.length + 1,
+            name: title,
+            body: body
+        };
+        setCommentsList([...commentsList, newComment])
+        resetInputs()
+    }
 
+    const changeBody = (event) => {
+        setBody(event.target.value);
+    }
+
+    const changeTitle = (event) => {
+        setTitle(event.target.value);
     }
 
     return (
@@ -39,16 +51,16 @@ const Home = ({comments}) => {
                         label="Title"
                         variant="outlined"
                         className={"text-field"}
-                        value={""} // TODO Agregar valor
-                        onChange={() => {}} // TODO settear valor
+                        value={title}
+                        onChange={changeTitle}
                     />
                     <TextField
                         id="outlined-basic"
                         label="Comment"
                         variant="outlined"
                         className={"text-field"}
-                        value={""} // TODO Agregar valor
-                        onChange={() => {}} // TODO settear valor
+                        value={body}
+                        onChange={changeBody}
                     />
                 </div>
                 <Button variant="contained" onClick={handleAddComment} className={"add-button"}>
@@ -57,13 +69,7 @@ const Home = ({comments}) => {
             </div>
             <div>
                 <h2>Comments</h2>
-                {/*
-                 * Se debe recorrer la lista de comentarios y por cada comentario se debe
-                 * renderizar el componente CommentBox.
-                 * <CommentBox comment={} goBack={} />
-                 *
-                 * Ayuda: Para recorrer la lista de comentarios se puede utilizar el metodo map
-                 */}
+                {commentsList.map((comm) => (<CommentBox key={comm.id} comment={comm} goBack={false} />))}
             </div>
         </div>
     )
