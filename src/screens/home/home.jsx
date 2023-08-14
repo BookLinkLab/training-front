@@ -34,8 +34,8 @@ const Home = ({comments, setComments}) => {
                         variant="outlined"
                         className={"text-field"}
                         value={commentTitle} 
-                        onChange={(event) => {
-                            setCommentTitle(event.target.value)}}
+                        onChange={(event) => 
+                            setCommentTitle(event.target.value)}
                     />
                     <TextField
                         id="outlined-basic"
@@ -43,8 +43,8 @@ const Home = ({comments, setComments}) => {
                         variant="outlined"
                         className={"text-field"}
                         value={commentText} 
-                        onChange={(event) => {
-                            setCommentText(event.target.value)}} 
+                        onChange={(event) => 
+                            setCommentText(event.target.value)}
                     />
                 </div>
                 <Button variant="contained" onClick={handleAddComment} className={"add-button"}>
@@ -58,7 +58,7 @@ const Home = ({comments, setComments}) => {
                 {comments.map((comment) => (
                     <CommentBox key={comment.id} comment={comment}/>
                 ))}
-            
+             
             </div>
         </div>
     )
