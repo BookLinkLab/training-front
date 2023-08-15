@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.css";
+import "../../index.css"
 
 export const CustomizedButton = (props) => {
 
@@ -13,6 +14,11 @@ export const CustomizedButton = (props) => {
         disabled
     } = props;
 
+    const getColors = getComputedStyle(document.documentElement);
+
+    const primaryColor500 = getColors.getPropertyValue('--primary-primary-500');
+    const greyColor700 = getColors.getPropertyValue('--grey-grey-700');
+
     const buttonStyle = {
         padding: size === "sm" ? "8px 16px" : size === "md" ? "12px 16px" : "12px 16px",
         fontSize: size === "sm" ? "12px" : size === "md" ? "14px" : "16px",
@@ -21,11 +27,11 @@ export const CustomizedButton = (props) => {
     return (
         <button onClick={onClick} className={`${variant} ${size}`} style={buttonStyle} disabled={disabled}>
             {!!LeftIcon &&
-                <LeftIcon color={disabled ? "#747F86" : (variant === 'fulfilled' ? "white" : '#94313E')}
+                <LeftIcon color={disabled ? greyColor700 : (variant === 'fulfilled' ? "white" : primaryColor500)}
                           size={size === 'lg' ? 18 : 16}/>}
             {children}
             {!!RightIcon &&
-                <RightIcon color={disabled ? "#747F86" : (variant === 'fulfilled' ? "white" : '#94313E')}
+                <RightIcon color={disabled ? greyColor700 : (variant === 'fulfilled' ? "white" : primaryColor500)}
                            size={size === 'lg' ? 18 : 16}/>}
         </button>
     );

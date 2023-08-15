@@ -1,3 +1,5 @@
+@import "../../index.css";
+
 button {
     border-radius: 8px;
     font-family: Inter, sans-serif;
@@ -14,33 +16,33 @@ button {
 }
 
 .fulfilled {
-    background: #94313E;
-    color: #FFF;
+    background: var(--primary-primary-500);
+    color: var(--white);
     border: none;
 }
 
 .fulfilled:hover {
-    background-color: #57101E;
+    background-color: var(--primary-primary-700);
 }
 
 .fulfilled:disabled {
     border-radius: 8px;
-    background: #CBCFD3;
+    background: var(--grey-grey-500);
 }
 
 .outlined {
-    background: #FFF;
+    background: var(--white);
     border-radius: 8px;
-    border: 1px solid #94313E;
+    border: 1px solid var(--primary-primary-500);
 }
 
 .outlined:hover {
-    background: #ECB9BD;
+    background: var(--primary-primary-300);
 }
 
 .outlined:disabled {
     border-radius: 8px;
-    border: 1px solid #747F86;
+    border: 1px solid var(--grey-grey-700);
 }
 
 .ghost {
@@ -50,11 +52,10 @@ button {
 }
 
 .ghost:hover {
-    background-color: #ECB9BD;
+    background-color: var(--primary-primary-300);
 }
 
 .ghost:disabled {
     border-radius: 8px;
-    background: #F4F4F4;
+    background: var(--grey-grey-100);
 }
-

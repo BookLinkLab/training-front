@@ -1,5 +1,7 @@
+@import '../../index.css';
+
 label {
-    color: #0C1012;
+    color: var(--black);
     font-family: Inter, sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -23,13 +25,13 @@ input {
     margin-top: 4px;
     width: 415px;
     border-radius: 8px;
-    border: 1px solid #B8BCC1;
+    border: 1px solid var(--grey-grey-500);
 }
 
 .error {
-    border: 1px solid #DA786B;
+    border: 1px solid var(--error-error-400);
 }
 
 .placeholder {
-    border: 1px solid #B8BCC1;
+    border: 1px solid var(--grey-grey-500);
 }

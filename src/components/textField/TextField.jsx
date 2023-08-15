@@ -7,6 +7,10 @@ const TextField = ({ field, form, label, variant = "default", placeholder, requi
     const hasError = errors[name] && touched[name];
     const updatedVariant = hasError ? "error" : variant;
 
+    const getColors = getComputedStyle(document.documentElement);
+
+    const errorColor400 = getColors.getPropertyValue('--error-error-400');
+
     return (
         <div>
             <div>
@@ -15,14 +19,14 @@ const TextField = ({ field, form, label, variant = "default", placeholder, requi
             <div>
                 <input
                     type="text"
-                    className={updatedVariant} // Use the updated variant
+                    className={updatedVariant}
                     {...field}
                     placeholder={placeholder}
                     required={required}
                 />
             </div>
             <div>
-                <div style={{ color: updatedVariant === "error" ? "#DA786B" : "black", fontSize: 12, marginTop: 4 }}>
+                <div style={{ color: updatedVariant === "error" ? errorColor400 : "black", fontSize: 12, marginTop: 4 }}>
                     {hasError ? errors[name] : ""}
                 </div>
             </div>
