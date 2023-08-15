@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom"
+import {useLocation} from "react-router-dom"
 import "./styles.css"
 import CommentBox from "../../components/CommentBox"
 import {useEffect, useState} from "react";
@@ -10,13 +10,13 @@ const Comment = () => {
     const [comment, setComment] = useState({})
 
     useEffect(() => {
-        getComment(commentId).then(comm => setComment(comm))
+        getComment(commentId).then(comment => setComment(comment))
     }, [commentId]);
 
     return (
         <div className={"comment-container"}>
             <h3>Specific Comment</h3>
-            <CommentBox comment={comment} goBack={true} />
+            <CommentBox comment={comment} goBack={true}/>
         </div>
     )
 }

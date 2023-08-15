@@ -1,0 +1,77 @@
+button {
+    border-radius: 8px;
+    border: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+
+    font-family: var(--font-body);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.large {
+    padding: 12px 16px;
+    font-size: var(--font-size-body1);
+}
+
+.medium {
+    padding: 12px 16px;
+    font-size: var(--font-size-body2);
+}
+
+.small {
+    padding: 8px 16px;
+    font-size: var(--font-size-body3);
+}
+
+.fulfilled {
+    background-color: var(--primary-primary-500);
+    color: var(--white);
+}
+
+.fulfilled:hover:enabled {
+    background-color: var(--primary-primary-700);
+    cursor: pointer;
+}
+
+.fulfilled:disabled {
+    background-color: var(--grey-grey-300);
+    color: var(--grey-grey-700);
+}
+
+.outlined {
+    border: 1px solid var(--primary-primary-500);
+    color: var(--primary-primary-500);
+    background-color: transparent;
+}
+
+.outlined:hover:enabled {
+    background: var(--primary-primary-300);
+    cursor: pointer;
+}
+
+.outlined:disabled {
+    border-color: var(--grey-grey-700);
+    color: var(--grey-grey-700);
+}
+
+.ghost {
+    border: transparent;
+    color: var(--primary-primary-500);
+    background-color: transparent;
+}
+
+.ghost:hover:enabled {
+    background: var(--primary-primary-300);
+    cursor: pointer;
+}
+
+.ghost:disabled {
+    background-color: var(--grey-grey-100);
+    color: var(--grey-grey-700);
+}
+
