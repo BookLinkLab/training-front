@@ -1,8 +1,10 @@
 import React, { useEffect, useState} from "react"
+
 import { TextField, Button } from "@mui/material"
 import "./styles.css"
 import CommentBox from "../../components/CommentBox";
-import { eventWrapper } from "@testing-library/user-event/dist/utils";
+
+
 
 /**
  * Para agregar un comentario nuevo se pide el titulo y el texto del comentario para poder agregarlo a la lista de comentarios.
@@ -29,6 +31,13 @@ const Home = ({comments}) => {
      * y la lista de comentarios.
      */
 
+    const refreshInputs = () => {
+        setTitle("")
+        setText("")
+    }
+
+
+
     const handleAddComment = async() => {
         const newComment = {
             id: commentList.length + 1,
@@ -38,8 +47,8 @@ const Home = ({comments}) => {
         const comment_list_aux = commentList.slice();
         comment_list_aux.push(newComment)
         setCommentList(comment_list_aux)
-        setTitle("")
-        setText("")        
+        refreshInputs();
+   
         /**
          * TODO Se debe agregar el comentario a la lista de comentarios
          * y una vez agregado se debe limpiar los campos de texto (los inputs texts se vacian).

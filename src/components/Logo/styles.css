@@ -1,0 +1,43 @@
+.svg-div{
+    align-items: center;
+    display: flex;
+    margin-right: 2px;
+}
+.medium-logo{
+    width: 54px;
+    height: 54px;
+    padding: 8.640000343322754px 9.180001258850098px 8.639998435974121px 9.720000267028809px;
+
+}
+.large-logo{
+    width: 72px;
+    height: 72px;
+    padding: 11.520000457763672px 12.239999771118164px 11.520000457763672px 12.960000991821289px;
+}
+
+.medium svg {
+    width: 54px;
+    height: 54px;
+}
+.large svg{
+    width: 72px;
+    height: 72px;
+}
+.small-logo{
+    padding: 0;
+    width: 28px;
+    height: 28px;
+}
+
+.logo-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.inline-container {
+    display: flex;
+    align-items: center;
+}
+
+

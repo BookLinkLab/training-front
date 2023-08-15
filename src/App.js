@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./screens/home/home"
 import {getComments} from "./service/apis";
 import Comment from "./screens/comment/comment"
+import Login from "./screens/login/login"
 
 /**
  * Agregar rutas para poder navegar entre las pantallas Home y Comment
@@ -44,6 +45,8 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<Home comments={comments}/>}></Route>
                 <Route exact path="/comment/:id" element={<Comment/>}></Route>
+                <Route exact path="login" element={<Login/>}></Route>
+
             </Routes>
         </Router>
     );

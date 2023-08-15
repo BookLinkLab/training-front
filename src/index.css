@@ -11,3 +11,108 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root{
+  --font: Inter, "serif";
+  --primary-100: #F8E8E8;
+  --primary-300: #ECB9BD;
+  --primary-500: #94313E;
+  --primary-700: #57101E;
+  --primary-900: #38000E;
+  --gray-100 : #F4F4F4;
+  --gray-300 : #CBCFD3;
+  --gray-500: #B8BCC1;
+  --gray-700 : #747F86;
+  --gray-900 : #1C2D38;
+  --black: #0C1012;
+  --white: #FFFFFF;
+  --error-100:#F6E1DF;
+  --error-400: #DA786B;
+  --success-100:#DDF3E2;
+  --success-400:#70BE7C;
+}
+.heading1{
+  font-family: var(--font);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 68px;
+}
+.heading2{
+  font-family: var(--font);
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 46px;
+}
+.heading3{
+  font-family: var(--font);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 39px;
+}
+.heading3-bold{
+  font-family: var(--font);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 39px;
+}
+.heading4{
+  font-family: var(--font);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 34px;
+}
+.heading5{
+  font-family: var(--font);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+}
+.heading6-bold{
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 700;
+
+}
+.heading6{
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 400;
+
+
+}
+.body1{
+  font-family: Inter,"serif";
+  font-size: 18px;
+  font-weight: 400;
+
+}
+.body1-bold{
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 600;
+
+}
+.body2{
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+.body2-bold{
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17px;
+}
+.body3{
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+}
+.body3-bold{
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+}
