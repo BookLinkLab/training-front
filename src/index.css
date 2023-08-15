@@ -11,3 +11,94 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --primary-primary-100: #F8E8E8;
+  --primary-primary-300: #ECB9BD;
+  --primary-primary-500: #94313E;
+  --primary-primary-700: #57101E;
+  --primary-primary-900: #38000E;
+
+  --grey-grey-100: #F4F4F4;
+  --grey-grey-300: #CBCFD3;
+  --grey-grey-500: #CBCFD3;
+  --grey-grey-700: #747F86;
+  --grey-grey-900: #1C2D38;
+
+  --black: #0C1012;
+
+  --white: #FFF;
+
+  --error-error-100: #F6E1DF;
+  --error-error-400: #DA786B;
+
+  --success-success-100: #DDF3E2;
+  --success-success-500: #70BE7C;
+
+  & text {
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    line-height: normal;
+  }
+
+  .heading1 {
+    font-size: 56px;
+    font-weight: 400;
+  }
+
+  .heading2 {
+    font-size: 38px;
+    font-weight: 400;
+  }
+
+  .heading3 {
+    font-size: 32px;
+    font-weight: 400;
+  }
+
+  .heading4 {
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  .heading5 {
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .heading6 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .body1,
+  .body1 {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .body1bold {
+    font-weight: 600;
+  }
+
+  .body2,
+  .body2{
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .body2bold {
+    font-weight: 600;
+  }
+
+  .body3,
+  .body3 {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .body3bold {
+    font-weight: 600;
+  }
+}
+
