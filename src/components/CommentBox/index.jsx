@@ -1,12 +1,12 @@
 import { Card, CardContent, Typography, CardActions, Button } from "@mui/material"
 import { useNavigate } from "react-router-dom"
-
+import CustomButton from "../button/button"
 const CommentBox = ({ comment, goBack }) => {
     const navigate = useNavigate()
 
     const navigateTo = () => {
         if (goBack) {
-            navigate(-1);
+            navigate("/");
 
         } else{
             navigate(`/comment/${comment.id}`)
@@ -23,9 +23,9 @@ const CommentBox = ({ comment, goBack }) => {
                 <Typography variant="body2">{comment.body}</Typography>
             </CardContent>
             <CardActions>
-                {comment.id <= 5 && <Button size="small" onClick={navigateTo}>
+                {comment.id <= 5 && <CustomButton variant='outlined' size="small" onclick={navigateTo}>
                     {goBack ? "Go Back" : "Learn More"}
-                </Button>}
+                </CustomButton>}
             </CardActions>
         </Card>
     )

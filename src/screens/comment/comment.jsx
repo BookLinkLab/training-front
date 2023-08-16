@@ -13,11 +13,6 @@ const Comment = () => {
         getComment(commentId).then((data)=>setComment(data))
     },[commentId])
 
-    /**
-     * TODO Utilizar useEffect para obtener el comentario con el id commentId
-     * Se requiere utilizar el servicio getComment(id) para obtener el comentario. (ver service/apis.js)
-     */
-
     return (
         <div className={"comment-container"}>
             <h3>Specific Comment</h3>
