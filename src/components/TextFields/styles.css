@@ -16,7 +16,7 @@ input:focus-visible{
 }
 
 .error{
-    border: 1px solid var(--primary-500);
+    border: 1px solid var(--error-400);
 }
 
 .labelTextField{
@@ -25,4 +25,5 @@ input:focus-visible{
 
 .smallTextField {
     margin-top: 4px;
+    color: var(--error-400);
 }
