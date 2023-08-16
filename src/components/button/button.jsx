@@ -9,10 +9,10 @@ export default function CustomButton(props) {
         rightIcon,
         size = "large",
         children,
-        type,
+        type='button',
         disabled } = props
 
-        const iconComponent = <Icon size={size==='large'? 18 : 16} color={variant=== 'fulfilled' ? '#FFFFFF' : '#94313E'}/>
+        const iconComponent = Icon ? <Icon size={size==='large'? 18 : 16} color={variant === 'fulfilled' ? '#FFFFFF' : '#94313E'}/> : null
 
     return(
         <button className={`${variant} ${size}`} disabled={disabled} onClick={onClick} type={type}>{leftIcon && iconComponent}{children}{rightIcon && iconComponent}</button>
