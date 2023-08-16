@@ -1,20 +1,23 @@
+import { useField } from "formik";
 import "./styles.css"
 
-export default function TextField(props){
+export default function CustomTextField(props){
     const{
-        onChange,
         variant = 'default',
         label,
-        placeholder,
-        helperText,
-        value
+        ...otherProps
     } = props
+
+    const [field, meta] = useField(props);
 
     return(
         <div className="textfield">
             <label className="body2 labelTextField">{label}</label>
-            <input className={variant} placeholder={placeholder} onChange={onChange} value={value}></input>
-            <small className="body3 smallTextField">{helperText}</small>
+            <input className={variant} {...field} {...otherProps}></input>
+            {meta.touched && meta.error ? (
+            <small className="body3 smallTextField">{meta.error}</small>
+             ) : null}
+            
         </div>
     )
 

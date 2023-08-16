@@ -1,71 +1,78 @@
-import React from "react";
-import { TextField } from "@mui/material";
-import "./styles.css";
+import CustomTextField from "../../components/TextFields/TextFields";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 import CommentBox from "../../components/CommentBox";
-import { Formik, Form, Field } from "formik";
 import CustomButton from "../../components/button/button";
+import { StarIcon } from "../../assets/icons/StarIcon";
+import './styles.css'
 
 const Home = ({ comments, setComments }) => {
-    const handleAddComment = async (values, { resetForm }) => {
-        const newComment = {
-            id: comments.length + 1,
-            name: values.title,
-            body: values.comment,
-        };
 
-        setComments([newComment, ...comments]); // Adds to the beginning of the array
-
-        resetForm();
-    };
-
-    const validateForm = (values) => {
-        const errors = {};
-
-        if (!values.title) {
-            errors.title = "Title is required";
+    const handleAddComment = async (values) => {
+        if (values.title !== "" && values.comment !== "") {
+            const newComment = {
+                id: comments.length + 1,
+                name: values.title,
+                body: values.comment,
+            };
+            setComments([newComment, ...comments])
         }
-
-        if (!values.comment) {
-            errors.comment = "Comment is required";
-        }
-
-        return errors;
-    };
+    }
 
     return (
         <div style={{ padding: 15 }}>
-            <h1>Home Page</h1>
+            <h1 className='paquequedebien'>Home Page</h1>
             <div className={"add-comment"}>
                 <div className={"text-field-container"}>
                     <Formik
-                        initialValues={{
-                            title: "",
-                            comment: "",
+                        initialValues={{ title: "", comment: "" }}
+                        validationSchema={Yup.object().shape({
+                            title: Yup.string().required("This field is required"),
+                            comment: Yup.string().required("This field is required"),
+                        })}
+                        onSubmit={async (values, { setSubmitting, resetForm }) => {
+                            if (!values.title || !values.comment) {
+                                setSubmitting(false);
+                                return;
+                            }
+                            await handleAddComment(values);
+                            resetForm();
+                            setSubmitting(false);
                         }}
-                        onSubmit={handleAddComment}
-                        validate={validateForm}
                     >
-                        {({ errors }) => (
-                            <Form>
-                                <TextField
+                        {({ errors, touched, handleSubmit, isSubmitting }) => (
+                            <Form onSubmit={handleSubmit}>
+                                <CustomTextField
                                     label="Title"
-                                    placeholder='Title'
-                                    variant
-                                    value={title}
-                                    helperText
-                                    onChange={e => setTitle(e.target.value)}
+                                    placeholder="Title"
+                                    //value={title}
+                                    variant={
+                                        (errors.title && touched.title) ||
+                                            (isSubmitting && !errors.title)
+                                            ? "error"
+                                            : "default"
+                                            
+                                    }
+                                    name="title"
                                 />
-                                <TextField
+                                <CustomTextField
                                     label="Comment"
-                                    placeholder='Comment'
-                                    variant
-                                    value={body}
-                                    helperText
-                                    onChange={e => setBody(e.target.value)}
+                                    placeholder="Comment"
+                                    //value={text}
+                                    variant={
+                                        (errors.comment && touched.comment) ||
+                                            (isSubmitting && !errors.comment)
+                                            ? "error"
+                                            : "default"
+                                            
+                                    }
+                                    name="comment"
                                 />
-                                <CustomButton type="submit" size="small">
+                                <div className='asiquedacentradofabri'>
+                                <CustomButton type={'submit'} icon={StarIcon}>
                                     Add Comment
                                 </CustomButton>
+                                </div>
                             </Form>
                         )}
                     </Formik>

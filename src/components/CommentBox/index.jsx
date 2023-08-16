@@ -23,7 +23,7 @@ const CommentBox = ({ comment, goBack }) => {
                 <Typography variant="body2">{comment.body}</Typography>
             </CardContent>
             <CardActions>
-                {comment.id <= 5 && <CustomButton variant='outlined' size="small" onclick={navigateTo}>
+                {comment.id <= 5 && <CustomButton variant='outlined' size="small" onClick={navigateTo}>
                     {goBack ? "Go Back" : "Learn More"}
                 </CustomButton>}
             </CardActions>

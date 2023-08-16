@@ -9,6 +9,14 @@ input{
     padding: 12px 16px;
     border: 1px solid var(--grey-300);
     border-radius: 8px;
+    
+}
+input:focus-visible{
+    outline: 1px solid var(--grey-700);
+}
+
+.error{
+    border: 1px solid var(--primary-500);
 }
 
 .labelTextField{
