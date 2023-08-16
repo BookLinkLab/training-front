@@ -1,0 +1,61 @@
+@import "../../index.css";
+
+button {
+    border-radius: 8px;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.fulfilled {
+    background: var(--primary-primary-500);
+    color: var(--white);
+    border: none;
+}
+
+.fulfilled:hover {
+    background-color: var(--primary-primary-700);
+}
+
+.fulfilled:disabled {
+    border-radius: 8px;
+    background: var(--grey-grey-500);
+}
+
+.outlined {
+    background: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--primary-primary-500);
+}
+
+.outlined:hover {
+    background: var(--primary-primary-300);
+}
+
+.outlined:disabled {
+    border-radius: 8px;
+    border: 1px solid var(--grey-grey-700);
+}
+
+.ghost {
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 8px;
+}
+
+.ghost:hover {
+    background-color: var(--primary-primary-300);
+}
+
+.ghost:disabled {
+    border-radius: 8px;
+    background: var(--grey-grey-100);
+}

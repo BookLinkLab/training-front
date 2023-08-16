@@ -1,0 +1,37 @@
+@import '../../index.css';
+
+label {
+    color: var(--black);
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+helperText {
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 4px;
+}
+
+input {
+    display: flex;
+    padding: 12px 16px;
+    align-items: center;
+    margin-top: 4px;
+    width: 415px;
+    border-radius: 8px;
+    border: 1px solid var(--grey-grey-500);
+}
+
+.error {
+    border: 1px solid var(--error-error-400);
+}
+
+.placeholder {
+    border: 1px solid var(--grey-grey-500);
+}
