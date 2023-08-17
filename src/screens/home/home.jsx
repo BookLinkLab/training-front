@@ -1,72 +1,91 @@
-import React, { useState} from "react"
-import { TextField, Button } from "@mui/material"
-import "./styles.css"
+import CustomTextField from "../../components/TextFields/TextFields";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 import CommentBox from "../../components/CommentBox";
+import CustomButton from "../../components/button/button";
+import { StarIcon } from "../../assets/icons/StarIcon";
+import './styles.css'
 
-/**
- * Para agregar un comentario nuevo se pide el titulo y el texto del comentario para poder agregarlo a la lista de comentarios.
- * En este ejercicio se debe utilizar estados para guardar el titulo y el texto del comentario.
- */
+const Home = ({ comments, setComments }) => {
 
-const Home = ({comments}) => {
-    /**
-     * TODO Utilizar estados para guardar el titulo y el texto del comentario
-     * y la lista de comentarios.
-     */
-
-    const handleAddComment = async() => {
-        /**
-         * TODO Se debe agregar el comentario a la lista de comentarios
-         * y una vez agregado se debe limpiar los campos de texto (los inputs texts se vacian).
-         *
-         * Ayuda: Para agregar un nuevo comentario se debe crear un objeto parecido al siguiente
-         * {
-         *   id: comments.length + 1,
-         *   name: commentTitle,
-         *   body: commentText,
-         *  }
-         */
-
+    const handleAddComment = async (values) => {
+        if (values.title !== "" && values.comment !== "") {
+            const newComment = {
+                id: comments.length + 1,
+                name: values.title,
+                body: values.comment,
+            };
+            setComments([newComment, ...comments])
+        }
     }
 
     return (
         <div style={{ padding: 15 }}>
-            <h1>Home Page</h1>
+            <h1 className='paquequedebien'>Home Page</h1>
             <div className={"add-comment"}>
                 <div className={"text-field-container"}>
-                    <TextField
-                        id="outlined-basic"
-                        label="Title"
-                        variant="outlined"
-                        className={"text-field"}
-                        value={""} // TODO Agregar valor
-                        onChange={() => {}} // TODO settear valor
-                    />
-                    <TextField
-                        id="outlined-basic"
-                        label="Comment"
-                        variant="outlined"
-                        className={"text-field"}
-                        value={""} // TODO Agregar valor
-                        onChange={() => {}} // TODO settear valor
-                    />
+                    <Formik
+                        initialValues={{ title: "", comment: "" }}
+                        validationSchema={Yup.object().shape({
+                            title: Yup.string().required("This field is required"),
+                            comment: Yup.string().required("This field is required"),
+                        })}
+                        onSubmit={async (values, { setSubmitting, resetForm }) => {
+                            if (!values.title || !values.comment) {
+                                setSubmitting(false);
+                                return;
+                            }
+                            await handleAddComment(values);
+                            resetForm();
+                            setSubmitting(false);
+                        }}
+                    >
+                        {({ errors, touched, handleSubmit, isSubmitting }) => (
+                            <Form onSubmit={handleSubmit}>
+                                <CustomTextField
+                                    label="Title"
+                                    placeholder="Title"
+                                    //value={title}
+                                    variant={
+                                        (errors.title && touched.title) ||
+                                            (isSubmitting && !errors.title)
+                                            ? "error"
+                                            : "default"
+                                            
+                                    }
+                                    name="title"
+                                />
+                                <CustomTextField
+                                    label="Comment"
+                                    placeholder="Comment"
+                                    //value={text}
+                                    variant={
+                                        (errors.comment && touched.comment) ||
+                                            (isSubmitting && !errors.comment)
+                                            ? "error"
+                                            : "default"
+                                            
+                                    }
+                                    name="comment"
+                                />
+                                <div className='asiquedacentradofabri'>
+                                <CustomButton type={'submit'} icon={StarIcon}>
+                                    Add Comment
+                                </CustomButton>
+                                </div>
+                            </Form>
+                        )}
+                    </Formik>
                 </div>
-                <Button variant="contained" onClick={handleAddComment} className={"add-button"}>
-                    Add Comment
-                </Button>
             </div>
             <div>
                 <h2>Comments</h2>
-                {/*
-                 * Se debe recorrer la lista de comentarios y por cada comentario se debe
-                 * renderizar el componente CommentBox.
-                 * <CommentBox comment={} goBack={} />
-                 *
-                 * Ayuda: Para recorrer la lista de comentarios se puede utilizar el metodo map
-                 */}
+                {comments.map((comment) => (
+                    <CommentBox key={comment.id} comment={comment} />
+                ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;
